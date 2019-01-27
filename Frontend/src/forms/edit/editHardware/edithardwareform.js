@@ -75,7 +75,7 @@ class edithardwareform extends React.Component{
     render(){
         let indexOfUser = this.state.korisnikList.findIndex((element => Object.keys(element) == this.state.KorisnikId ))
         let indexOfRoom = this.state.prostorijaList.findIndex((element => Object.keys(element) == this.state.ProstorijaId))
-        if(this.state.korisnikList[indexOfUser] == undefined)
+        if(this.state.korisnikList[indexOfUser] == undefined || this.state.prostorijaList[indexOfRoom] == undefined)
             return (<div></div>)
         else{
             return(

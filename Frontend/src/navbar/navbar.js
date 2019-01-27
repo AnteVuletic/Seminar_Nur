@@ -5,6 +5,7 @@ import Add from '../add/add'
 import './navbar.css'
 import EditSoftware from '../forms/edit/editSoftware/editsoftware'
 import EditHardware from '../forms/edit/editHardware/edithardware'
+import EditSoftwareOnHardware from '../forms/edit/eidtSoftwareOnHardware/editsoftwareonhardware'
 
 class navbar extends React.Component{
     constructor(){
@@ -28,9 +29,9 @@ class navbar extends React.Component{
                             <li>
                                 <a onClick={() => this.setState(prevState => ({ subMenu : !prevState.subMenu}))}>Edit</a>
                                     {this.state.subMenu && <ul className="container">
-                                        <Link to="/edit/software">Software</Link>
-                                        <Link to="/edit/hardware">Hardware</Link>
-                                        <li>Software on hardware</li>
+                                        <li><Link to="/edit/software">Software</Link></li>
+                                        <li><Link to="/edit/hardware">Hardware</Link></li>
+                                        <li><Link to="/edit/softwareonhardware">Software on hardware</Link></li>
                                         <li>Korisnik</li>
                                         <li>Model</li>
                                         <li>Prostorija</li>
@@ -42,6 +43,7 @@ class navbar extends React.Component{
                     <Route path="/add/" component={Add} />
                     <Route path="/edit/software" component={EditSoftware} />
                     <Route path="/edit/hardware" component={EditHardware} />
+                    <Route path="/edit/softwareonhardware" component={EditSoftwareOnHardware}/>
                 </div>
             </Router>
         )

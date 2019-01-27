@@ -1,16 +1,16 @@
 import React from 'react'
-import '../form.css'
-import Dropdown from '../dropdown/dropdown'
+import '../../form.css'
+import Dropdown from '../../dropdown/dropdown'
 
 
-class software_hardware extends React.Component{
-    constructor(){
-        super()
+class hardwareonsoftwareform extends React.Component{
+    constructor(props){
+        super(props)
         this.state = { 
-            HardwareId : 0 , 
-            SoftwareId: 0,
-            Azurirano: false,
-            Namjena: '',
+            HardwareId : this.props.HardwareId , 
+            SoftwareId: this.props.SoftwareId,
+            Azurirano: this.props.Azurirano,
+            Namjena: this.props.Namjena,
             hardwareList : [],
             softwareList : [],
             korisnikList : []
@@ -79,22 +79,29 @@ class software_hardware extends React.Component{
         }).then(response => console.log(response.json())).catch(err => console.log(err))
     }
     render(){
-        return(
-            <form className="form" onSubmit={this.handleSubmit} >
-                <p>Add software to hardware</p>
-                <Dropdown title="Hardware"
-                        list={this.state.hardwareList} 
-                        selectedItem={this.handleHardware}/>
-                <Dropdown title="Software"
-                        list={this.state.softwareList}
-                        selectedItem={this.handleSoftware}/> 
-                <label>Azuriranio</label>
-                <input className="checkBox" name='Ažurirano' type='checkbox' value={this.state.Azurirano} onChange={this.handleAzurirano} /> 
-                <label>Namjena:</label>
-                <input type="text" value={this.state.Namjena} onChange={this.handleChangeNamjena}></input>               
-                <input className="button" type="submit" value="Confirm"></input>
-            </form>
-        )
+        let indexOfHardware = this.state.hardwareList.findIndex((element => Object.keys(element) == this.state.HardwareId));
+        let indexOfSoftware = this.state.softwareList.findIndex((element => Object.keys(element) == this.state.SoftwareId));
+        console.log(this.state.SoftwareId)
+        if(this.state.hardwareList[indexOfHardware] == undefined || this.state.softwareList[indexOfSoftware] == undefined)
+            return(<div></div>)
+        else{
+            return(
+                <form className="form" onSubmit={this.handleSubmit} >
+                    <p>Edit software on hardware</p>
+                    <Dropdown title={Object.values(this.state.hardwareList[indexOfHardware])}
+                            list={this.state.hardwareList} 
+                            selectedItem={this.handleHardware}/>
+                    <Dropdown title={Object.values(this.state.softwareList[indexOfSoftware])}
+                            list={this.state.softwareList}
+                            selectedItem={this.handleSoftware}/> 
+                    <label>Azuriranio</label>
+                    <input className="checkBox" name='Ažurirano' type='checkbox' value={this.state.Azurirano} onChange={this.handleAzurirano} /> 
+                    <label>Namjena:</label>
+                    <input type="text" value={this.state.Namjena} onChange={this.handleChangeNamjena}></input>               
+                    <input className="button" type="submit" value="Confirm"></input>
+                </form>
+            )
+        }
     }
 }
-export default software_hardware;
+export default hardwareonsoftwareform;
