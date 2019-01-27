@@ -45,6 +45,9 @@ BEGIN TRANSACTION
 	ALTER TABLE dbo.Hardware
 	ADD FOREIGN KEY (ProstorijaId) REFERENCES dbo.Prostorija(ProstorijaId)
 
+	ALTER TABLE dbo.Hardware
+	ADD FOREIGN KEY (Model) REFERENCES dbo.Model(Model)
+
 	ALTER TABLE dbo.Model
 	ADD FOREIGN KEY (Model) REFERENCES dbo.Model(Model) 
 

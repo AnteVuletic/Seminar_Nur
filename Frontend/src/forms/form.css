@@ -1,0 +1,40 @@
+.form{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px,15px;
+    border: 0.5px solid black;
+    background-color: #E8F3F8;
+    font-family: ubuntu;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 5px 15px;
+}
+.form > p{
+    display: block;
+    border-bottom: 0.5px solid black;
+    font-size: 18px;
+    margin: 5px auto;
+    padding: 2px;
+}
+.form > input{
+    display: block;
+    margin: 10px;
+}
+.form > label{
+    display: block;
+    margin: 10px;
+}
+.button{
+    display: block;
+    padding: 5px 10px;
+    background-color: #0588B0;
+    margin: 10px auto;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+.checkBox{
+    width: 150px;
+    height: 25px;
+}

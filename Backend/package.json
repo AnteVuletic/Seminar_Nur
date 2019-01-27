@@ -1,0 +1,26 @@
+{
+  "name": "seminar_nur",
+  "version": "1.0.0",
+  "description": "Seminar iz napredna upotreba racunala",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnteVuletic/Seminar_Nur.git"
+  },
+  "author": "Martina i Nedo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnteVuletic/Seminar_Nur/issues"
+  },
+  "homepage": "https://github.com/AnteVuletic/Seminar_Nur#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "msnodesqlv8": "^0.6.12",
+    "nodeman": "^1.1.2",
+    "nodemon": "^1.18.9"
+  }
+}
