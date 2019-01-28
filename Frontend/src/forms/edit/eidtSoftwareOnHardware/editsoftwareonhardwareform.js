@@ -9,7 +9,7 @@ class hardwareonsoftwareform extends React.Component{
         this.state = { 
             HardwareId : this.props.HardwareId , 
             SoftwareId: this.props.SoftwareId,
-            Azurirano: this.props.Azurirano,
+            Azurirano :  this.props.Azurirano,
             Namjena: this.props.Namjena,
             hardwareList : [],
             softwareList : [],
@@ -81,7 +81,6 @@ class hardwareonsoftwareform extends React.Component{
     render(){
         let indexOfHardware = this.state.hardwareList.findIndex((element => Object.keys(element) == this.state.HardwareId));
         let indexOfSoftware = this.state.softwareList.findIndex((element => Object.keys(element) == this.state.SoftwareId));
-        console.log(this.state.SoftwareId)
         if(this.state.hardwareList[indexOfHardware] == undefined || this.state.softwareList[indexOfSoftware] == undefined)
             return(<div></div>)
         else{
@@ -95,7 +94,7 @@ class hardwareonsoftwareform extends React.Component{
                             list={this.state.softwareList}
                             selectedItem={this.handleSoftware}/> 
                     <label>Azuriranio</label>
-                    <input className="checkBox" name='Ažurirano' type='checkbox' value={this.state.Azurirano} onChange={this.handleAzurirano} /> 
+                    <input className="checkBox" name='Ažurirano' type='checkbox' defaultChecked={this.state.Azurirano} value={this.state.Azurirano} onChange={this.handleAzurirano} /> 
                     <label>Namjena:</label>
                     <input type="text" value={this.state.Namjena} onChange={this.handleChangeNamjena}></input>               
                     <input className="button" type="submit" value="Confirm"></input>

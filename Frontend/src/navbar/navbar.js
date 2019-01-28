@@ -6,6 +6,9 @@ import './navbar.css'
 import EditSoftware from '../forms/edit/editSoftware/editsoftware'
 import EditHardware from '../forms/edit/editHardware/edithardware'
 import EditSoftwareOnHardware from '../forms/edit/eidtSoftwareOnHardware/editsoftwareonhardware'
+import EditKorisnik from '../forms/edit/eidtKorisnik/editkorisnik'
+import EditModel from '../forms/edit/editModel/editmodel'
+import EditProstorija from '../forms/edit/editProstorija/editprostorija'
 
 class navbar extends React.Component{
     constructor(){
@@ -32,9 +35,9 @@ class navbar extends React.Component{
                                         <li><Link to="/edit/software">Software</Link></li>
                                         <li><Link to="/edit/hardware">Hardware</Link></li>
                                         <li><Link to="/edit/softwareonhardware">Software on hardware</Link></li>
-                                        <li>Korisnik</li>
-                                        <li>Model</li>
-                                        <li>Prostorija</li>
+                                        <li><Link to="/edit/korisnik/">Korisnik</Link></li>
+                                        <li><Link to="/edit/model/">Model</Link></li>
+                                        <li><Link to="/edit/prostorija">Prostorija</Link></li>
                                     </ul> }
                             </li>
                         </ul>
@@ -44,6 +47,9 @@ class navbar extends React.Component{
                     <Route path="/edit/software" component={EditSoftware} />
                     <Route path="/edit/hardware" component={EditHardware} />
                     <Route path="/edit/softwareonhardware" component={EditSoftwareOnHardware}/>
+                    <Route path="/edit/korisnik" component={EditKorisnik}/>
+                    <Route path="/edit/model" component={EditModel}/>
+                    <Route path="/edit/prostorija" component={EditProstorija}/>
                 </div>
             </Router>
         )
