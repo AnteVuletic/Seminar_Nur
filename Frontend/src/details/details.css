@@ -1,0 +1,14 @@
+.hardwaresoftwaredetail{
+    display: inline-block;
+    border: 1px solid black;
+    font-size: 15px;
+    padding: 50px;
+    margin: 10px;
+}
+.prostorijadetails{
+    display: block;
+    border: 1px solid black;
+    font-size: 15px;
+    padding: 50px;
+    margin: 10px;
+}

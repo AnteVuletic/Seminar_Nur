@@ -39,7 +39,7 @@ expressRouter.get('/api/sorted/Software',(req,res)=>{
     })
 })
 expressRouter.get('/api/sorted/prostorija',(req,res)=>{
-    sql.query(connectionString,'SELECT * FROM dbo.Prostorija p INNER JOIN dbo.Hardware h ON p.ProstorijaId = h.ProstorijaId INNER JOIN Software_Hardware sh ON h.HardwareId = sh.HardwareId INNER JOIN Software s ON s.SoftwareId = sh.SoftwareId ORDER BY h.Model,s.OS',(err,rows)=>{
+    sql.query(connectionString,'SELECT p.Adresa,h.Model,s.OS FROM dbo.Prostorija p LEFT JOIN dbo.Hardware h ON p.ProstorijaId = h.ProstorijaId LEFT JOIN Software_Hardware sh ON h.HardwareId = sh.HardwareId LEFT JOIN Software s ON s.SoftwareId = sh.SoftwareId GROUP BY p.Adresa,h.Model,s.OS ORDER BY p.Adresa,h.Model,s.OS',(err,rows)=>{
         if(err !=null)
             console.log(err)
         else

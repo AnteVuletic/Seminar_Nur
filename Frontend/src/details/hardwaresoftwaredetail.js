@@ -1,18 +1,19 @@
 import React from 'react'
+import './details.css'
 
 class hardwaresoftwaredetail extends React.Component{
     constructor(props){
         super(props)
-        this.state = {
-            Model : this.props.Model,
-            OS : this.props.OS
-        }
+        this.render()
     }
     render(){
-        return(<div>
-                <h1>{this.state.Model}</h1>
-                <h2>{this.state.OS}</h2>
-            </div>)
+        console.log(this.props.Model)
+        return(
+            <section className="hardwaresoftwaredetail">
+                <p>{this.props.Model}</p>
+                <p>{this.props.OS}</p>
+            </section>
+        )
     }
 }
 export default hardwaresoftwaredetail;

@@ -1,5 +1,6 @@
 import React from 'react'
 import Prostorijadetailgraphic from './prostorijadetail'
+import './details.css'
 
 class prostorijadetails extends React.Component{
     constructor(){
@@ -7,38 +8,27 @@ class prostorijadetails extends React.Component{
         this.state={
             prostorijaDetailList : []
         }
-        this.initializeProstorija()
-    }
-    initializeProstorija(){
-     return fetch(`http://192.168.0.126:3001/api/sorted/prostorija`)
+        let promise = fetch(`http://192.168.0.126:3001/api/sorted/prostorija`)
         .then(response => response.json()).then(data => data.map(arrayElement =>{
             let tmpElement = { [arrayElement.Adresa] : arrayElement}
-            this.setState(prevState =>{
-                let isSame = -1
-                for (let index = 0; index < prevState.prostorijaDetailList.length; index++) {
-                    const element = prevState.prostorijaDetailList[index];
-                    if(element.Adresa == tmpElement.Adresa)
-                        isSame = index
-                }
-                if(isSame === -1)
-                 {
-                   this.setState({prostorijaDetailList : [...prevState.prostorijaDetailList,tmpElement]})
-                 }
-                 else
-                 {
-                    this.setState({
-                        prostorijaDetailList : [prevState.prostorijaDetailList.insert(isSame,...Object.values(tmpElement))]
-                    })
-                 }
-            })}))
+            this.state.prostorijaDetailList = [...this.state.prostorijaDetailList,tmpElement]}))
+        promise.then(() => this.render())
+    }
+    toRender= () =>{
+        let prostorijaDetailList = this.state.prostorijaDetailList
+        let prostorije = []
+        for(let index = 0; index < prostorijaDetailList.length; index++) 
+        {
+            let specificAddressList = prostorijaDetailList.filter(elementInQuestion => Object.keys(elementInQuestion).toString() === Object.keys(prostorijaDetailList[index]).toString())
+            index = prostorijaDetailList.findIndex(findthis => findthis == specificAddressList[specificAddressList.length-1])
+            prostorije.push(<Prostorijadetailgraphic Adresa={Object.keys(specificAddressList[0]).toString()} ProstorijaDetails={specificAddressList}/>)
+        }
+        return prostorije;
     }
     render(){
         return(
             <div>
-                {this.state.prostorijaDetailList.forEach(element => {
-                    console.log(element)
-                    return <Prostorijadetailgraphic Adresa={Object.keys(element)} Details={element} />
-                })}
+                {this.toRender()}
             </div>
         )
     }
