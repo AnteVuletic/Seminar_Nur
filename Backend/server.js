@@ -38,6 +38,14 @@ expressRouter.get('/api/sorted/Software',(req,res)=>{
             res.send(JSON.stringify(result))
     })
 })
+expressRouter.get('/api/sorted/prostorija',(req,res)=>{
+    sql.query(connectionString,'SELECT * FROM dbo.Prostorija p INNER JOIN dbo.Hardware h ON p.ProstorijaId = h.ProstorijaId INNER JOIN Software_Hardware sh ON h.HardwareId = sh.HardwareId INNER JOIN Software s ON s.SoftwareId = sh.SoftwareId ORDER BY h.Model,s.OS',(err,rows)=>{
+        if(err !=null)
+            console.log(err)
+        else
+            res.send(JSON.stringify(rows))
+    })
+})
 expressRouter.post('/api/add/user',(req,res)=>{
     const result = sql.query(connectionString,`INSERT INTO [dbo].[Korisnik] ( Oib , Ime , Prezime ) Values(\'${req.body.Oib}\', \'${req.body.Ime}\', \'${req.body.Prezime}\')`)
     res.send(result);

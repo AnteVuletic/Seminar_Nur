@@ -9,6 +9,7 @@ import EditSoftwareOnHardware from '../forms/edit/eidtSoftwareOnHardware/editsof
 import EditKorisnik from '../forms/edit/eidtKorisnik/editkorisnik'
 import EditModel from '../forms/edit/editModel/editmodel'
 import EditProstorija from '../forms/edit/editProstorija/editprostorija'
+import ProstorijaDetails from '../details/prostorijadetails'
 
 class navbar extends React.Component{
     constructor(){
@@ -40,6 +41,9 @@ class navbar extends React.Component{
                                         <li><Link to="/edit/prostorija">Prostorija</Link></li>
                                     </ul> }
                             </li>
+                            <li>
+                                <Link to="/view/prostorija">Prostorija details</Link>
+                            </li>
                         </ul>
                     </nav>
                     <Route path="/" exact component={Home} />
@@ -50,6 +54,7 @@ class navbar extends React.Component{
                     <Route path="/edit/korisnik" component={EditKorisnik}/>
                     <Route path="/edit/model" component={EditModel}/>
                     <Route path="/edit/prostorija" component={EditProstorija}/>
+                    <Route path="/view/prostorija" component={ProstorijaDetails}/>
                 </div>
             </Router>
         )
