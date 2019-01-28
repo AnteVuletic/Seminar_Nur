@@ -21,7 +21,7 @@ class editprostorija extends React.Component{
         return(
             <div>
                 {this.state.prostorijaList.map(element=>{
-                    return <Editprostorijaform Adresa={element.Adresa} />
+                    return <Editprostorijaform Adresa={element.Adresa} ProstorijaId={element.ProstorijaId}/>
                 })}
             </div>
         )

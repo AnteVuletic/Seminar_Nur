@@ -67,9 +67,9 @@ class hardwareonsoftwareform extends React.Component{
         })
     }
     handleSubmit(event){
-        const packData = JSON.stringify(this.state)
+        const packData = JSON.stringify([this.state,this.props])
         console.log(packData)
-        fetch('http://192.168.0.126:3001/api/add/relation', {
+        fetch('http://192.168.0.126:3001/api/edit/relation', {
         method: 'POST',
         mode: 'cors',
         headers: {

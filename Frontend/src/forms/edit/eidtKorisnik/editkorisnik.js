@@ -21,7 +21,7 @@ class editkorisnik extends React.Component{
         return(
             <div>
                 {this.state.korisnikList.map(element=>{
-                    return <Editkorisnikform Oib={element.Oib} Ime={element.Ime} Prezime={element.Prezime} />
+                    return <Editkorisnikform Oib={element.Oib} Ime={element.Ime} Prezime={element.Prezime} KorisnikId={element.KorisnikId} />
                 })}
             </div>
         )

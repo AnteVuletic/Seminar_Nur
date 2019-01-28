@@ -6,7 +6,8 @@ import Dropdown from '../../dropdown/dropdown'
 class edithardwareform extends React.Component{
     constructor(props){
         super(props)
-        this.state = { 
+        this.state = {
+            HardwareId : this.props.HardwareId, 
             KorisnikId : this.props.KorisnikId , 
             ProstorijaId: this.props.ProstorijaId,
             Model: this.props.Model,
@@ -52,10 +53,10 @@ class edithardwareform extends React.Component{
         })
     }
     handleKorisnik = (korisnikValue) =>{
-        this.setState({ KorisnikId : korisnikValue})
+        this.setState({ KorisnikId : parseInt(korisnikValue)})
     }
     handleProstorija = (prostorijaValue) =>{
-        this.setState({ ProstorijaId : prostorijaValue})
+        this.setState({ ProstorijaId : parseInt(prostorijaValue)})
     }
     handleModel = (modelValue) =>{
         const modelValueInt = parseInt(modelValue)
@@ -63,7 +64,7 @@ class edithardwareform extends React.Component{
     }
     handleSubmit(event){
         const packData = JSON.stringify(this.state)
-        fetch('http://192.168.0.126:3001/api/add/hardware', {
+        fetch('http://192.168.0.126:3001/api/edit/hardware', {
         method: 'POST',
         mode: 'cors',
         headers: {

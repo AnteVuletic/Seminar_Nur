@@ -10,7 +10,7 @@ class edithardware extends React.Component{
         this.initializeHardware()
     }
     initializeHardware(){
-        return fetch(`http://192.168.0.126:3001/api/all/Hardware`)
+        return fetch(`http://192.168.0.126:3001/api/sorted/Hardware`)
         .then(response => response.json()).then(data => data.map(arrayElement =>{    
             this.setState(prevState => ({
                 hardwareList : [...prevState.hardwareList,arrayElement]
@@ -21,7 +21,7 @@ class edithardware extends React.Component{
         return(
             <div>
                 {this.state.hardwareList.map(element =>{
-                    return <Edithardwareform KorisnikId={element.KorisnikId} ProstorijaId={element.ProstorijaId} Model={element.Model} />
+                    return <Edithardwareform KorisnikId={element.KorisnikId} ProstorijaId={element.ProstorijaId} Model={element.Model} HardwareId={element.HardwareId} />
                 })}
             </div>
         )

@@ -10,7 +10,7 @@ class editsoftware extends React.Component{
         this.initializeList()
     }
     initializeList(event){
-        return fetch(`http://192.168.0.126:3001/api/all/Software`)
+        return fetch(`http://192.168.0.126:3001/api/sorted/Software`)
             .then(response => response.json()).then(data => data.map(arrayElement =>{
                 this.setState(prevState => ({
                     softwareList : [...prevState.softwareList,arrayElement]
@@ -21,7 +21,7 @@ class editsoftware extends React.Component{
         return(
             <div>
                 {this.state.softwareList.map(element => {
-                    return <Editsoftwareform Os={element.OS} Licenca={element.Licenca} />
+                    return <Editsoftwareform SoftwareId={element.SoftwareId} Os={element.OS} Licenca={element.Licenca}/>
                 })}
             </div>
         )

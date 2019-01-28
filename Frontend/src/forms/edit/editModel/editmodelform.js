@@ -10,13 +10,14 @@ class editmodelform extends React.Component{
         this.handleChangeMarka = this.handleChangeMarka.bind(this)
     }
     handleSubmit(event){
-        fetch('http://192.168.0.126:3001/api/add/model', {
+        let payload = JSON.stringify([this.state,this.props])
+        fetch('http://192.168.0.126:3001/api/edit/model', {
         method: 'POST',
         mode: 'cors',
         headers: {
             'Content-Type':'application/json'
         },
-        body: JSON.stringify(this.state)
+        body: payload
         }).then(response => console.log(response.json()))
     }
     handleChangeModel(event){

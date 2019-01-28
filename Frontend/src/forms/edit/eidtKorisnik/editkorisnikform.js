@@ -4,14 +4,14 @@ import '../../form.css'
 class editkorisnikform extends React.Component{
     constructor(props){
         super(props)
-        this.state = { Oib : this.props.Oib , Ime: this.props.Ime , Prezime : this.props.Prezime}
+        this.state = {KorisnikId: this.props.KorisnikId, Oib : this.props.Oib , Ime: this.props.Ime , Prezime : this.props.Prezime}
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChangeOib = this.handleChangeOib.bind(this)
         this.handleChangeIme = this.handleChangeIme.bind(this)
         this.handleChangePrezime = this.handleChangePrezime.bind(this)
     }
     handleSubmit(event){
-        fetch('http://192.168.0.126:3001/api/add/user', {
+        fetch('http://192.168.0.126:3001/api/edit/user', {
         method: 'POST',
         mode: 'cors',
         headers: {
