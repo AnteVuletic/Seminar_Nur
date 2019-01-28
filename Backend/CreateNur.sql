@@ -46,13 +46,10 @@ BEGIN TRANSACTION
 	ADD FOREIGN KEY (ProstorijaId) REFERENCES dbo.Prostorija(ProstorijaId)
 
 	ALTER TABLE dbo.Hardware
-	ADD FOREIGN KEY (Model) REFERENCES dbo.Model(Model)
+	ADD FOREIGN KEY (Model) REFERENCES dbo.Model(Model) ON UPDATE CASCADE
 
 	ALTER TABLE dbo.Model
 	ADD FOREIGN KEY (Model) REFERENCES dbo.Model(Model) 
-
-	ALTER TABLE dbo.Software_Hardware
-	ADD CONSTRAINT PK_SoftwareHardware PRIMARY KEY(SoftwareId,HardwareId)
 
 	ALTER TABLE dbo.Software_Hardware
 	ADD CONSTRAINT FK_Software FOREIGN KEY (SoftwareId) REFERENCES dbo.Software(SoftwareId)
