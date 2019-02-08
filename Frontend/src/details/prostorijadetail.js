@@ -10,7 +10,7 @@ class prostorijadetail extends React.Component{
     render(){
         return(
             <section className="prostorijadetails">
-                <p>{this.props.Adresa}</p>
+                <p className="title">{this.props.Adresa}</p>
                 {this.props.ProstorijaDetails.map(element =>{
                     return <Hardwaresoftwaredetail Model={Object.values(element)[0].Model} OS={Object.values(element)[0].OS} />
                 })}

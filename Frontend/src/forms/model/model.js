@@ -10,7 +10,7 @@ class model extends React.Component{
         this.handleChangeMarka = this.handleChangeMarka.bind(this)
     }
     handleSubmit(event){
-        fetch('http://192.168.0.126:3001/api/add/model', {
+        fetch('http://127.0.0.1:3001/api/add/model', {
         method: 'POST',
         mode: 'cors',
         headers: {

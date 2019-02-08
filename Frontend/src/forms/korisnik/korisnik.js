@@ -11,7 +11,7 @@ class korisnik extends React.Component{
         this.handleChangePrezime = this.handleChangePrezime.bind(this)
     }
     handleSubmit(event){
-        fetch('http://192.168.0.126:3001/api/add/user', {
+        fetch('http://127.0.0.1:3001/api/add/user', {
         method: 'POST',
         mode: 'cors',
         headers: {

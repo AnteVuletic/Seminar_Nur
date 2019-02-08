@@ -11,7 +11,7 @@ class editmodelform extends React.Component{
     }
     handleSubmit(event){
         let payload = JSON.stringify([this.state,this.props])
-        fetch('http://192.168.0.126:3001/api/edit/model', {
+        fetch('http://127.0.0.1:3001/api/edit/model', {
         method: 'POST',
         mode: 'cors',
         headers: {

@@ -10,7 +10,7 @@ class editmodel extends React.Component{
         this.initiliazeModel()
     }
     initiliazeModel(){
-        return fetch(`http://192.168.0.126:3001/api/all/Model`)
+        return fetch(`http://127.0.0.1:3001/api/all/Model`)
         .then(response => response.json()).then(data =>  data.map(arrayElement =>{
                 this.setState(prevState => ({
                     modelList : [...prevState.modelList,arrayElement]

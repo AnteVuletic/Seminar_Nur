@@ -10,7 +10,7 @@ class editkorisnik extends React.Component{
         this.initializeListKorisnik()
     }
     initializeListKorisnik(){
-        return fetch(`http://192.168.0.126:3001/api/all/Korisnik`)
+        return fetch(`http://127.0.0.1:3001/api/all/Korisnik`)
             .then(response => response.json()).then(data => data.map(arrayElement =>{
                 this.setState(prevState => ({
                     korisnikList : [...prevState.korisnikList,arrayElement]

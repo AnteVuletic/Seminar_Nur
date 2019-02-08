@@ -9,7 +9,7 @@ class editprostorijaform extends React.Component{
         this.handleChangeAdresa = this.handleChangeAdresa.bind(this)
     }
     handleSubmit(event){
-        fetch('http://192.168.0.126:3001/api/edit/prostorija', {
+        fetch('http://127.0.0.1:3001/api/edit/prostorija', {
         method: 'POST',
         mode: 'cors',
         headers: {

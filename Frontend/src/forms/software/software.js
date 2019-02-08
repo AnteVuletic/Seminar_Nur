@@ -10,7 +10,7 @@ class software extends React.Component{
         this.handleChangeLicense = this.handleChangeLicense.bind(this)
     }
     handleSubmit(event){
-        fetch('http://192.168.0.126:3001/api/add/software', {
+        fetch('http://127.0.0.1:3001/api/add/software', {
         method: 'POST',
         mode: 'cors',
         headers: {

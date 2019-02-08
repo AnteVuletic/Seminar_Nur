@@ -1,14 +1,22 @@
 .hardwaresoftwaredetail{
     display: inline-block;
     border: 1px solid black;
+    border-radius: 5px;
     font-size: 15px;
-    padding: 50px;
+    padding: 30px;
     margin: 10px;
+    background: silver;
+    font-size: 15px;
+    font-weight: 600;
 }
 .prostorijadetails{
     display: block;
-    border: 1px solid black;
+    border: 2px solid black;
     font-size: 15px;
-    padding: 50px;
+    padding: 10px 40px;
     margin: 10px;
+    border-radius: 5px;
+}
+.title{
+    font-size: 30px;
 }

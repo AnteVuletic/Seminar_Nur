@@ -10,7 +10,7 @@ class editsoftware extends React.Component{
         this.initializeList()
     }
     initializeList(event){
-        return fetch(`http://192.168.0.126:3001/api/sorted/Software`)
+        return fetch(`http://127.0.0.1:3001/api/sorted/Software`)
             .then(response => response.json()).then(data => data.map(arrayElement =>{
                 this.setState(prevState => ({
                     softwareList : [...prevState.softwareList,arrayElement]

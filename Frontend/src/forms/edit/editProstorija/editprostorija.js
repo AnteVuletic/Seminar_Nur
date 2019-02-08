@@ -10,7 +10,7 @@ class editprostorija extends React.Component{
         this.initializeProstorija()
     }
     initializeProstorija(){
-        return fetch(`http://192.168.0.126:3001/api/all/Prostorija`)
+        return fetch(`http://127.0.0.1:3001/api/all/Prostorija`)
         .then(response => response.json()).then(data => data.map(arrayElement =>{
             this.setState(prevState => ({
                 prostorijaList : [...prevState.prostorijaList,arrayElement]

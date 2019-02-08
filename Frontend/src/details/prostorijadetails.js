@@ -8,11 +8,10 @@ class prostorijadetails extends React.Component{
         this.state={
             prostorijaDetailList : []
         }
-        let promise = fetch(`http://192.168.0.126:3001/api/sorted/prostorija`)
+        let promise = fetch(`http://127.0.0.1:3001/api/sorted/prostorija`)
         .then(response => response.json()).then(data => data.map(arrayElement =>{
             let tmpElement = { [arrayElement.Adresa] : arrayElement}
             this.state.prostorijaDetailList = [...this.state.prostorijaDetailList,tmpElement]}))
-        promise.then(() => this.render())
     }
     toRender= () =>{
         let prostorijaDetailList = this.state.prostorijaDetailList

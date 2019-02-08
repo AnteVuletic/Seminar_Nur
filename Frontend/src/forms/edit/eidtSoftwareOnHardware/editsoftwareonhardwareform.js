@@ -23,7 +23,7 @@ class hardwareonsoftwareform extends React.Component{
         promise.then(() => this.initializeListHardware())
     }
     initializeListKorisnik(){
-        return fetch(`http://192.168.0.126:3001/api/all/Korisnik`)
+        return fetch(`http://127.0.0.1:3001/api/all/Korisnik`)
             .then(response => response.json()).then(data => data.map(arrayElement =>{
                 let tmpElement = {  [arrayElement.KorisnikId] : arrayElement.Ime + " " + arrayElement.Prezime }
                 this.setState(prevState => ({
@@ -33,7 +33,7 @@ class hardwareonsoftwareform extends React.Component{
 
     }
     initializeListHardware(){
-        return fetch(`http://192.168.0.126:3001/api/all/Hardware`)
+        return fetch(`http://127.0.0.1:3001/api/all/Hardware`)
             .then(response => response.json()).then(data => data.map(arrayElement =>{    
                 let tmpElement = {  [arrayElement.HardwareId] : this.state.korisnikList[this.state.korisnikList.findIndex((element => Object.keys(element) == arrayElement.KorisnikId ))][arrayElement.KorisnikId] + " " + arrayElement.Model }
                 this.setState(prevState => ({
@@ -42,7 +42,7 @@ class hardwareonsoftwareform extends React.Component{
             }))
     }
     initializeListSoftware(){
-        return fetch(`http://192.168.0.126:3001/api/all/Software`)
+        return fetch(`http://127.0.0.1:3001/api/all/Software`)
             .then(response => response.json()).then(data => data.map(arrayElement =>{
                 let tmpElement = { [arrayElement.SoftwareId] : arrayElement.OS}
                 this.setState(prevState => ({
@@ -69,7 +69,7 @@ class hardwareonsoftwareform extends React.Component{
     handleSubmit(event){
         const packData = JSON.stringify([this.state,this.props])
         console.log(packData)
-        fetch('http://192.168.0.126:3001/api/edit/relation', {
+        fetch('htt127.0.0.1:3001/api/edit/relation', {
         method: 'POST',
         mode: 'cors',
         headers: {

@@ -10,7 +10,7 @@ class editsoftwareonhardware extends React.Component{
         this.initializeSoftwareOnHardware()
     }
     initializeSoftwareOnHardware(){
-        return fetch(`http://192.168.0.126:3001/api/all/Software_Hardware`)
+        return fetch(`http://127.0.0.1:3001/api/all/Software_Hardware`)
         .then(response => response.json()).then(data => data.map(arrayElement =>{    
             this.setState(prevState => ({
                 softwareOnHardwareList : [...prevState.softwareOnHardwareList,arrayElement]

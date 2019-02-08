@@ -21,7 +21,7 @@ class hardware extends React.Component{
         
     }
     initializeListKorisnik(){
-        return fetch(`http://192.168.0.126:3001/api/all/Korisnik`)
+        return fetch(`http://127.0.0.1:3001/api/all/Korisnik`)
             .then(response => response.json()).then(data => data.map(arrayElement =>{
                 let tmpElement = {  [arrayElement.KorisnikId] : arrayElement.Prezime }
                 this.setState(prevState => ({
@@ -30,7 +30,7 @@ class hardware extends React.Component{
             }))
     }
     initializeListProstorija(){
-        return fetch(`http://192.168.0.126:3001/api/all/Prostorija`)
+        return fetch(`http://127.0.0.1:3001/api/all/Prostorija`)
             .then(response => response.json()).then(data => data.map(arrayElement =>{
                 let tmpElement = { [arrayElement.ProstorijaId] : arrayElement.Adresa}
                 this.setState(prevState => ({
@@ -39,7 +39,7 @@ class hardware extends React.Component{
             }))
     }
     initializeListModel(){
-        return fetch(`http://192.168.0.126:3001/api/all/Model`)
+        return fetch(`http://127.0.0.1:3001/api/all/Model`)
             .then(response => response.json()).then(data =>{ 
                 let numberId = 0;
                 data.map(arrayElement =>{
@@ -63,7 +63,7 @@ class hardware extends React.Component{
     }
     handleSubmit(event){
         const packData = JSON.stringify(this.state)
-        fetch('http://192.168.0.126:3001/api/add/hardware', {
+        fetch('http://127.0.0.1:3001/api/add/hardware', {
         method: 'POST',
         mode: 'cors',
         headers: {
